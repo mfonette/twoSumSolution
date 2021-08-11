@@ -30,22 +30,81 @@
 
 // 
 
-function sum(e) {
-    let numbers = [2,3,6,9];
-    let target = 9;
+// function sum(numbers, target) {
+//     // let numbers = [2,3,6,9];
+//     // let target = 9;
+//     numbers.forEach(function(number, index){
+//         // console.log(number, index)
+//         let diff = target- number
+//         // console.log(diff)
+//        numbers.forEach(function(number2, index2){
+//            if (number2 !== number){
+//                if(number2 + number == target ){
+//                    console.log( index, index2)
+//                }
+//            }
+//            else if (number2 == number && number2 + number == target) {
+//                console.log(index, index2)
+//            }
+//        })
+//     })
+// }
+
+// // sum([2,3,6,9], 9);
+// // sum([2,7,11,15], 9);
+// // sum([3,2,4], 6);
+// sum([3,3], 6);
+
+
+//Node.js 10.14.0
+//Plain Javascript and Node.js is supported
+// html/css is not supported here 
+const sum = (numbers, target) => {
+      // let numbers = [2,3,6,9];
+    // let target = 9;
+    let ans = []
     numbers.forEach(function(number, index){
         // console.log(number, index)
         let diff = target- number
         // console.log(diff)
        numbers.forEach(function(number2, index2){
-           if (number2 !== number){
-               if(number2 + number == target ){
+           if (number !== number2){
+               if(number + number2 == target ){
                    console.log( index, index2)
+                   ans = [index, index2]
                }
+           }
+           else if (number == number2 && number + number2 == target) {
+               console.log(index, index2)
+               ans = [ index, index2]
            }
        })
     })
-}
-
-sum();
-
+    return ans
+  };
+  
+  
+  // test starts here
+  
+  // Inputs/test cases
+  const inputs = [
+    {input: [2,7,6,12], target: 9, expect: [0,1]},
+    {input: [3,2,4], target: 6, expect: [1,2]},
+    {input: [3,3], target: 6, expect: [0,1]},
+  ];
+  
+  const test = (fn) => {
+    let pass = true;
+    inputs.forEach(({input, target, expect}) => {
+      if (pass === false) return;
+      const result = fn(input, target);
+      //console.log("res", result)
+      pass = result[0] === expect[0] && result[1] === expect[1];
+     // if (pass === false) {
+        console.log(pass ? 'passed' : "failed")
+        console.table({input: input, expected: expect, result: result})
+     // }
+    });
+  };
+  
+  test(sum);
