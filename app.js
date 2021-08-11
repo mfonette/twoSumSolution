@@ -44,45 +44,8 @@ function sum(e) {
                }
            }
        })
-        // number.forEach(function(number2, index2){})
     })
 }
 
 sum();
 
-// let sumOfTheTwo = function(arr) {
-// array.forEach(function (item, index) {
-// //   console.log(item, index);
-// var diff = target - item;
-// let x = array.indexOf(diff)
-// array.forEach(function(item2, index2){
-//     // console.log(item2, index2)
-//     if(index == index2){
-
-//     }
-//     if(index + index2 != target){
-
-//     }
-//     }
-// )})
-
-// //   let secondArray = target - array;
-// //   console.log(secondArray)
-// //   let x = 
-// }
-
-// sumOfTheTwo();
-
-
-// var twoSumAlt = function(nums, target) {
-//     var result = [];
-//     nums.forEach(function(num, i) {
-//       var diff = target - num;
-//       var k = nums.indexOf(diff);
-//       if ( k > -1 && k !== i) {
-//         result.push(i);
-//         result.push(k);
-//       }
-//     });
-//     return result;
-//   }
