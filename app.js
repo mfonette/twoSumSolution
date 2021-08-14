@@ -64,19 +64,29 @@ const sum = (numbers, target) => {
     // let target = 9;
     let ans = []
     numbers.forEach(function(number, index){
+        ans.push(index)
         // console.log(number, index)
         let diff = target- number
         // console.log(diff)
        numbers.forEach(function(number2, index2){
            if (number !== number2){
                if(number2 == diff && number + number2 == target ){
-                   console.log( index, index2)
-                   ans = [index, index2]
+                //    console.log( index, index2)
+                //    ans = [index, index2]
+                ans.push(index2)
+                console.log(ans)
                }
            }
-           else if (number == number2 && number2 == diff && number + number2 == target) {
-               console.log(index, index2)
-               ans = [ index, index2]
+           else if (index2 == index && number + number2 == target) {
+            //    console.log(index, index2)
+            //    ans = [ index, index2]
+            ans.push(index2)
+            // console.log(ans)
+           }
+           else if (number == number2 && index2 !== index){
+               if(number2 == diff && number + number2 == target)
+               ans.push(index2)
+            //    console.log(ans)
            }
        })
     })
