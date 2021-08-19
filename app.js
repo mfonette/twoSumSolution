@@ -59,39 +59,56 @@
 //Node.js 10.14.0
 //Plain Javascript and Node.js is supported
 // html/css is not supported here 
-const sum = (numbers, target) => {
-      // let numbers = [2,3,6,9];
-    // let target = 9;
-    let ans = []
-    numbers.forEach(function(number, index){
-        ans.push(index)
-        // console.log(number, index)
-        let diff = target- number
-        // console.log(diff)
-       numbers.forEach(function(number2, index2){
-           if (number !== number2){
-               if(number2 == diff && number + number2 == target ){
-                //    console.log( index, index2)
-                //    ans = [index, index2]
-                ans.push(index2)
-                console.log(ans)
-               }
-           }
-           else if (index2 == index && number + number2 == target) {
-            //    console.log(index, index2)
-            //    ans = [ index, index2]
-            ans.push(index2)
-            // console.log(ans)
-           }
-           else if (number == number2 && index2 !== index){
-               if(number2 == diff && number + number2 == target)
-               ans.push(index2)
-            //    console.log(ans)
-           }
-       })
-    })
-    return ans
+// const sum = (numbers, target) => {
+//     let ans = []
+//     numbers.forEach(function(number, index){
+//         if (ans.length <2 || ans.length >2) {
+//             ans = [];
+//             ans.push(index)
+//         // console.log(number, index)
+//         let diff = target- number
+//         // console.log(diff)
+//        numbers.forEach(function(number2, index2){
+//            if (number !== number2){
+//                if(number2 == diff){
+//                 ans.push(index2)
+//                 // console.log(ans)
+//                }
+//            }
+//            else if (number == number2 && index2 !== index){
+//                if(number2 == diff)
+//                ans.push(index2)
+//             //    console.log(ans)
+//            }
+//        })
+//         }
+//     })
+//     return ans
+//   };
+
+
+  const sum = (nums, target) => {
+    const ans = [];
+    nums.forEach((n,i) => {
+      if (ans.length === 0) {
+        const diff = target - nums[i];
+        const newArr = nums.filter((z,ind) => ind !== i);
+        //console.log(i,newArr, diff);
+        if (newArr.some(n => n === diff)) {
+          //console.log(true);
+          y = newArr.findIndex(n => n === diff);
+          //console.log(y);
+          ans[0] = i;
+          ans[1] = y + 1;
+        }
+      }
+    });
+    console.log('ans',ans); 
+    return ans;
   };
+
+
+//   
   
   
   // test starts here
